@@ -499,6 +499,36 @@ html {
     color: var(--primary-color);
 }
 
+.gallery-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(243, 156, 18, 0.1) 100%);
+    border-radius: var(--border-radius);
+    border: 2px dashed var(--primary-color);
+}
+
+.placeholder-content {
+    text-align: center;
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.placeholder-content h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.placeholder-content p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
 /* Team Section */
 .team {
     padding: 80px 20px;
@@ -554,7 +584,81 @@ html {
     color: #999;
 }
 
-/* FAQ Section */
+/* Members Section */
+.members {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.members h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.member-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    border-left: 5px solid var(--primary-color);
+}
+
+.member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.member-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.member-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.member-card .accomplishment {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.achievements {
+    list-style: none;
+    padding: 0;
+}
+
+.achievements li {
+    padding: 0.5rem 0;
+    color: #555;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.achievements li:last-child {
+    border-bottom: none;
+}
+
+
 .faq {
     padding: 80px 20px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -705,7 +809,8 @@ html {
 
     .gallery-grid,
     .team-grid,
-    .faq-content {
+    .faq-content,
+    .members-grid {
         grid-template-columns: 1fr;
     }
 

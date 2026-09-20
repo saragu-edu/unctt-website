@@ -67,7 +67,7 @@ const observer = new IntersectionObserver(function(entries) {
 
 // Observe cards for animation
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.feature, .schedule-card, .event-card, .team-member, .faq-item, .gallery-item').forEach(card => {
+    document.querySelectorAll('.feature, .schedule-card, .event-card, .team-member, .faq-item, .gallery-item, .member-card').forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'all 0.6s ease';
