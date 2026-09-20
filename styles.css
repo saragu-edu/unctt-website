@@ -31,8 +31,7 @@ section.active {
     display: block;
 }
 
-/* Hero and schedule always visible initially */
-#home {
+#home.active {
     display: flex;
 }
 
