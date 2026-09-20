@@ -5,10 +5,10 @@
 }
 
 :root {
-    --primary-color: #4A90E2;
-    --secondary-color: #F39C12;
-    --dark-color: #2C3E50;
-    --light-color: #ECF0F1;
+    --primary-color: #4B9CD3;
+    --secondary-color: #13294B;
+    --dark-color: #13294B;
+    --light-color: #EDF5FB;
     --text-color: #333;
     --border-radius: 8px;
     --transition: all 0.3s ease;
@@ -48,7 +48,7 @@ html {
 
 /* Navigation */
 .navbar {
-    background-color: var(--dark-color);
+    background-color: #13294B;
     color: white;
     padding: 1rem 0;
     position: sticky;
@@ -87,8 +87,8 @@ html {
 }
 
 .nav-link:hover {
-    color: var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
+    color: #4B9CD3;
+    border-bottom: 2px solid #4B9CD3;
 }
 
 .hamburger {
@@ -107,14 +107,18 @@ html {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #6C5CE7 100%);
+    background: linear-gradient(135deg, #4B9CD3 0%, #13294B 100%);
     color: white;
     padding: 120px 20px;
     text-align: center;
     min-height: 600px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+}
+
+.hero.active {
+    display: flex;
 }
 
 .hero-content h1 {
@@ -155,7 +159,7 @@ html {
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    background-color: var(--secondary-color);
+    background-color: #13294B;
     color: white;
     text-decoration: none;
     border-radius: var(--border-radius);
@@ -167,23 +171,23 @@ html {
 }
 
 .btn:hover {
-    background-color: #E67E22;
+    background-color: #4B9CD3;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary {
-    background-color: var(--secondary-color);
+    background-color: #13294B;
 }
 
 .btn-small {
     padding: 8px 16px;
     font-size: 0.9rem;
-    background-color: var(--primary-color);
+    background-color: #4B9CD3;
 }
 
 .btn-small:hover {
-    background-color: #357ABD;
+    background-color: #13294B;
 }
 
 /* About Section */
@@ -593,70 +597,124 @@ html {
 .members h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     color: var(--dark-color);
 }
 
-.section-subtitle {
+.members h3 {
     text-align: center;
-    font-size: 1.2rem;
-    color: #666;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+/* Members Photos */
+.members-photos {
     margin-bottom: 3rem;
 }
 
-.members-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.member-card {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    padding: 2rem;
+.photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    background: linear-gradient(135deg, rgba(74, 144, 226, 0.1) 0%, rgba(243, 156, 18, 0.1) 100%);
     border-radius: var(--border-radius);
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
-    border-left: 5px solid var(--primary-color);
+    border: 2px dashed var(--primary-color);
 }
 
-.member-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.photo-placeholder .placeholder-content {
+    text-align: center;
 }
 
-.member-icon {
-    font-size: 2.5rem;
+.photo-placeholder .placeholder-icon {
+    font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.member-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.3rem;
+.photo-placeholder p {
+    font-size: 1.1rem;
+    color: #666;
 }
 
-.member-card .accomplishment {
+/* Members Roster */
+.members-list-section {
+    margin-bottom: 3rem;
+}
+
+.members-roster {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.member-item {
+    background-color: var(--light-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.member-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.member-name {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.member-role {
+    font-size: 0.9rem;
     color: #666;
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
     font-style: italic;
 }
 
-.achievements {
-    list-style: none;
-    padding: 0;
+/* Team Accomplishments */
+.team-accomplishments {
+    margin-top: 3rem;
 }
 
-.achievements li {
-    padding: 0.5rem 0;
-    color: #555;
-    font-size: 0.9rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+.accomplishments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
 }
 
-.achievements li:last-child {
-    border-bottom: none;
+.accomplishment-card {
+    background: linear-gradient(135deg, #4B9CD3 0%, #13294B 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
 }
+
+.accomplishment-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.accomplishment-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.accomplishment-card p {
+    font-size: 1rem;
+    margin: 0;
+}
+
 
 
 .faq {
@@ -707,7 +765,7 @@ html {
 /* LinkTree Section */
 .linktree {
     padding: 60px 20px;
-    background-color: var(--primary-color);
+    background-color: #4B9CD3;
     color: white;
     text-align: center;
 }
@@ -747,7 +805,7 @@ html {
 
 .linktree-item:hover {
     background-color: white;
-    color: var(--primary-color);
+    color: #13294B;
     transform: translateY(-3px);
 }
 
@@ -765,7 +823,7 @@ html {
         top: 60px;
         left: 0;
         width: 100%;
-        background-color: var(--dark-color);
+        background-color: #13294B;
         flex-direction: column;
         padding: 2rem 0;
         gap: 0;
@@ -810,7 +868,8 @@ html {
     .gallery-grid,
     .team-grid,
     .faq-content,
-    .members-grid {
+    .members-roster,
+    .accomplishments-grid {
         grid-template-columns: 1fr;
     }
 
