@@ -21,6 +21,21 @@ body {
     overflow-x: hidden;
 }
 
+/* Hide sections by default */
+section {
+    display: none;
+}
+
+/* Show active sections */
+section.active {
+    display: block;
+}
+
+/* Hero and schedule always visible initially */
+#home {
+    display: flex;
+}
+
 html {
     scroll-behavior: smooth;
 }

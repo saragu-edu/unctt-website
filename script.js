@@ -6,10 +6,30 @@ function toggleMenu() {
 
 // Close menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
         document.querySelector('.nav-menu').classList.remove('active');
+        handleNavigation(e);
     });
 });
+
+// Navigation page switching
+function handleNavigation(e) {
+    e.preventDefault();
+    
+    const targetId = e.target.getAttribute('href').substring(1);
+    
+    // Hide all sections
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Show target section
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+        targetSection.classList.add('active');
+        window.scrollTo(0, 0);
+    }
+}
 
 // Handle form submission
 function handleSubmit(event) {
@@ -21,7 +41,7 @@ function handleSubmit(event) {
     const message = form.querySelector('textarea').value;
     
     // Create mailto link (for demo purposes)
-    const mailtoLink = `mailto:unctabletennis@gmail.com?subject=Contact from ${name}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    const mailtoLink = `mailto:tabletennis.unc@gmail.com?subject=Contact from ${name}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
     
     // Alternative: Show success message
     alert(`Thank you for your message, ${name}! We'll get back to you soon.`);
@@ -29,24 +49,6 @@ function handleSubmit(event) {
     // Reset form
     form.reset();
 }
-
-// Smooth scroll offset for sticky navbar
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            const navHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = targetElement.offsetTop - navHeight;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
 
 // Add scroll animation to elements
 const observerOptions = {
@@ -64,9 +66,12 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Observe cards for animation
-document.querySelectorAll('.feature, .schedule-card, .event-card').forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'all 0.6s ease';
-    observer.observe(card);
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.feature, .schedule-card, .event-card, .team-member, .faq-item, .gallery-item').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
+    });
 });
+
